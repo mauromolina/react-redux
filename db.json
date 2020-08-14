@@ -1,29 +1,59 @@
 {
-    "productos": [
-      {
-        "id": 1,
-        "nombre": "Jugo de Zanahoria",
-        "precio": "31111"
-      },
-      {
-        "id": 2,
-        "nombre": "Jugo de Naranja",
-        "precio": "1"
-      },
-      {
-        "nombre": "Jugo de Naranja",
-        "precio": "300",
-        "id": 3
-      },
-      {
-        "nombre": "Rib Eye 800g",
-        "precio": "200",
-        "id": 4
-      },
-      {
-        "nombre": "Jugo de Fresa",
-        "precio": "200",
-        "id": 5
-      }
-    ]
-  }
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Jugo de Zanahoria",
+      "precio": "31111"
+    },
+    {
+      "id": 2,
+      "nombre": "Jugo de Naranja",
+      "precio": "1"
+    },
+    {
+      "nombre": "Jugo de Naranja",
+      "precio": "300",
+      "id": 3
+    },
+    {
+      "nombre": "Rib Eye 800g",
+      "precio": "200",
+      "id": 4
+    },
+    {
+      "nombre": "Jugo de Fresa",
+      "precio": "200",
+      "id": 5
+    },
+    {
+      "name": "Coca Cola",
+      "price": 125,
+      "id": 6
+    },
+    {
+      "name": "Fanta",
+      "price": 123,
+      "id": 7
+    },
+    {
+      "name": "Fanta Guaraná",
+      "price": 123,
+      "id": 8
+    },
+    {
+      "name": "Agua",
+      "price": 100,
+      "id": 9
+    },
+    {
+      "name": "Fideos",
+      "price": 75,
+      "id": 10
+    },
+    {
+      "name": "Oreos",
+      "price": 100,
+      "id": 11
+    }
+  ]
+}
