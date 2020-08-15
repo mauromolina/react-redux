@@ -6,6 +6,8 @@
 
 The application was created with ReactJS as part of my learning with Redux, REST API, Axios and reinforcing design knowledge.
 
+This application uses [JSON Server](https://github.com/typicode/json-server) to simulate a products API with the db.json file
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Preview
