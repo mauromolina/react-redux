@@ -1,54 +1,14 @@
 {
   "productos": [
     {
-      "id": 1,
-      "name": "Jugo de Zanahoria",
-      "price": "31111"
-    },
-    {
-      "id": 2,
-      "name": "Jugo de Naranja",
-      "price": "1"
-    },
-    {
-      "name": "Jugo de Naranja",
-      "price": "300",
-      "id": 3
-    },
-    {
-      "name": "Rib Eye 800g",
-      "price": "200",
-      "id": 4
-    },
-    {
-      "name": "Jugo de Fresa",
-      "price": "200",
-      "id": 5
-    },
-    {
       "name": "Coca Cola",
       "price": 125,
       "id": 6
     },
     {
-      "name": "Fanta",
-      "price": 123,
-      "id": 7
-    },
-    {
       "name": "Fanta Guaraná",
       "price": 123,
       "id": 8
-    },
-    {
-      "name": "Agua",
-      "price": 100,
-      "id": 9
-    },
-    {
-      "name": "Fideos",
-      "price": 75,
-      "id": 10
     },
     {
       "name": "Oreos",
