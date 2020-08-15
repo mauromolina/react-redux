@@ -9,6 +9,7 @@ import {
     SUCCESSFULL_DELETE_PRODUCT,
     FAILED_DELETE_PRODUCT,
     GET_UPDATE_PRODUCT,
+    START_UPDATE_PRODUCT,
     SUCCESSFULL_UPDATE_PRODUCT,
     FAILED_UPDATE_PRODUCT
 } from '../types';
@@ -42,6 +43,7 @@ export default function(state = initialState, action) {
         case FAILED_PRODUCTS_DOWNLOAD:
         case FAILED_ADD_PRODUCT:
         case FAILED_DELETE_PRODUCT:
+        case FAILED_UPDATE_PRODUCT:
             return  {
                 ...state,
                 loading: false,
@@ -74,6 +76,14 @@ export default function(state = initialState, action) {
                 updateProduct: action.payload
             }
 
+        case SUCCESSFULL_UPDATE_PRODUCT:
+            return {
+                ...state,
+                updateProduct: null,
+                products: state.products.map(
+                    product => product.id === action.payload.id ? product = action.payload : product 
+                )
+            }
         default:
             return state;
     }

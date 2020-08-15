@@ -1,14 +1,48 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
+import { editProductAction } from '../actions/actionsProducts';
+import { useHistory } from 'react-router-dom';
 
 const EditProduct = () => {
 
-    // producto a editar
-    const product = useSelector(state => state.products.updateProduct);
-    if(!product)return null;
-    const { name, price, id } = product;
+    const history = useHistory();
+    const dispatch = useDispatch();
 
-    return ( 
+
+    // state del producto
+    const [product, setProduct] = useState({
+        name: '',
+        price: ''
+    })
+
+    // producto a editar
+    const updateProduct = useSelector(state => state.products.updateProduct);
+    // if(!product)return null;
+
+
+    // llenar el state automaticamente
+    useEffect( () => {
+        setProduct(updateProduct);
+    }, [updateProduct])
+
+    // leer los datos del form
+    const handleChange = e => {
+        setProduct({
+            ...product,
+            [e.target.name] : e.target.value
+        })
+    }
+
+    const { name, price} = product;
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        // validar
+        dispatch(editProductAction(product));
+        history.push('/');
+    }
+
+    return (
         <div className="row justify-content-center">
             <div className="col-md-8">
                 <div className="card">
@@ -16,7 +50,9 @@ const EditProduct = () => {
                         <h2 className="text-center mb-4 font-weight-bold">
                             Editar Producto
                         </h2>
-                        <form>
+                        <form
+                            onSubmit={handleSubmit}
+                        >
                             <div className="form-group">
                                 <label>Nombre del producto</label>
                                 <input
@@ -25,6 +61,7 @@ const EditProduct = () => {
                                     placeholder="Nombre producto"
                                     name="name"
                                     value={name}
+                                    onChange={handleChange}
                                 />
                             </div>
                             <div className="form-group">
@@ -35,6 +72,7 @@ const EditProduct = () => {
                                     placeholder="Precio producto"
                                     name="price"
                                     value={price}
+                                    onChange={handleChange}
                                 />
                             </div>
                             <button
@@ -50,5 +88,5 @@ const EditProduct = () => {
         </div>
      );
 }
- 
+
 export default EditProduct;

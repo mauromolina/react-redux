@@ -9,6 +9,7 @@ import {
     FAILED_DELETE_PRODUCT,
     SUCCESSFULL_DELETE_PRODUCT,
     GET_UPDATE_PRODUCT,
+    START_UPDATE_PRODUCT,
     SUCCESSFULL_UPDATE_PRODUCT,
     FAILED_UPDATE_PRODUCT
 } from '../types';
@@ -78,12 +79,12 @@ export function getProductsAction() {
 const getProducts = () => ({
     type: START_PRODUCTS_DOWNLOAD,
     payload: true
-}) 
+})
 
 const successfullGetProducts = products => ({
     type: SUCCESSFULL_PRODUCTS_DOWNLOAD,
     payload: products
-    
+
 })
 
 const failedGetProducts = () => ({
@@ -125,7 +126,7 @@ const failedDeleteProduct = () => ({
     payload: true
 })
 
-// Funcion de edición
+// Funcion de obtener producto a editar
 export function updateProductAction(product){
     return (dispatch) => {
         dispatch (getUpdateProduct(product));
@@ -136,3 +137,31 @@ export function updateProductAction(product){
      type: GET_UPDATE_PRODUCT,
      payload: product
  })
+
+//  edita el producto
+export function editProductAction(product){
+    return async (dispatch) => {
+        dispatch(editProduct())
+        try {
+            await axiosClient.put(`productos/${product.id}`, product);
+            dispatch(successfullEditProduct(product));
+        } catch (error) {
+            console.log(error);
+            dispatch(failedEditProduct());
+        }
+    }
+}
+
+const editProduct = product => ({
+    type: START_UPDATE_PRODUCT
+})
+
+const successfullEditProduct = product => ({
+    type: SUCCESSFULL_UPDATE_PRODUCT,
+    payload: product
+})
+
+const failedEditProduct = () => ({
+    type: FAILED_UPDATE_PRODUCT,
+    payload: true
+})
