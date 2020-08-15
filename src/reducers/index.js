@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import reducerProducts from './reducerProducts';
+import reducerAlerts from './reducerAlert';
 
 export default combineReducers({
-    products: reducerProducts
+    products: reducerProducts,
+    alerts: reducerAlerts
 });
