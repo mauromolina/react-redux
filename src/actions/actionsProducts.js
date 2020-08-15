@@ -7,7 +7,10 @@ import {
     FAILED_PRODUCTS_DOWNLOAD,
     GET_DELETE_PRODUCT,
     FAILED_DELETE_PRODUCT,
-    SUCCESSFULL_DELETE_PRODUCT
+    SUCCESSFULL_DELETE_PRODUCT,
+    GET_UPDATE_PRODUCT,
+    SUCCESSFULL_UPDATE_PRODUCT,
+    FAILED_UPDATE_PRODUCT
 } from '../types';
 
 import axiosClient from '../config/axios';
@@ -121,3 +124,15 @@ const failedDeleteProduct = () => ({
     type: FAILED_DELETE_PRODUCT,
     payload: true
 })
+
+// Funcion de edición
+export function updateProductAction(product){
+    return (dispatch) => {
+        dispatch (getUpdateProduct(product));
+    }
+ }
+
+ const getUpdateProduct = product => ({
+     type: GET_UPDATE_PRODUCT,
+     payload: product
+ })

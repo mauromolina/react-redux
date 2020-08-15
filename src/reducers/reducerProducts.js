@@ -7,7 +7,10 @@ import {
     FAILED_PRODUCTS_DOWNLOAD,
     GET_DELETE_PRODUCT,
     SUCCESSFULL_DELETE_PRODUCT,
-    FAILED_DELETE_PRODUCT
+    FAILED_DELETE_PRODUCT,
+    GET_UPDATE_PRODUCT,
+    SUCCESSFULL_UPDATE_PRODUCT,
+    FAILED_UPDATE_PRODUCT
 } from '../types';
 import { act } from 'react-dom/test-utils';
 
@@ -15,7 +18,8 @@ const initialState = {
     products: [],
     error: null,
     loading: false,
-    deleteProduct: null
+    deleteProduct: null,
+    updateProduct: null
 }
 
 export default function(state = initialState, action) {
@@ -62,6 +66,12 @@ export default function(state = initialState, action) {
                 ...state,
                 products: state.products.filter( product => product.id !== state.deleteProduct),
                 deleteProduct: null
+            }
+        
+        case GET_UPDATE_PRODUCT:
+            return {
+                ...state,
+                updateProduct: action.payload
             }
 
         default:
