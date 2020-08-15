@@ -1,7 +1,10 @@
 import {
     ADD_PRODUCT,
-    SUCCESFULL_ADD_PRODUCT,
-    FAILED_ADD_PRODUCT
+    SUCCESSFULL_ADD_PRODUCT,
+    FAILED_ADD_PRODUCT,
+    START_PRODUCTS_DOWNLOAD,
+    SUCCESSFULL_PRODUCTS_DOWNLOAD,
+    FAILED_PRODUCTS_DOWNLOAD
 } from '../types';
 
 import axiosClient from '../config/axios';
@@ -13,9 +16,9 @@ export function newProductAction(product) {
         dispatch(addProduct());
         try {
             // insertar en la api
-            await axiosClient.post('/productoss', product);
+            await axiosClient.post('/productos', product);
             // si todo sale bien
-            dispatch(succesfullAddProduct(product));
+            dispatch(successfullAddProduct(product));
             swal.fire(
                 'Correcto!',
                 'El producto se agregó correctamente!',
@@ -36,12 +39,13 @@ export function newProductAction(product) {
 
 // Agregar un producto
 const addProduct = () => ({
-    type: ADD_PRODUCT
+    type: ADD_PRODUCT,
+    payload: true
 })
 
 // Se guarda bien el producto
-const succesfullAddProduct = product => ({
-    type:SUCCESFULL_ADD_PRODUCT,
+const successfullAddProduct = product => ({
+    type:SUCCESSFULL_ADD_PRODUCT,
     payload: product
 })
 
@@ -49,4 +53,34 @@ const succesfullAddProduct = product => ({
 const failedAddProduct = status => ({
     type: FAILED_ADD_PRODUCT,
     payload: status
+})
+
+// Funcion para obtener los productos
+export function getProductsAction() {
+    return async (dispatch) => {
+        dispatch(getProducts());
+        try {
+            const response = await axiosClient.get('/productos');
+            dispatch(successfullGetProducts(response.data));
+        } catch (error) {
+            console.log(error);
+            dispatch(failedGetProducts());
+        }
+    }
+}
+
+const getProducts = () => ({
+    type: START_PRODUCTS_DOWNLOAD,
+    payload: true
+}) 
+
+const successfullGetProducts = products => ({
+    type: SUCCESSFULL_PRODUCTS_DOWNLOAD,
+    payload: products
+    
+})
+
+const failedGetProducts = () => ({
+    type: FAILED_PRODUCTS_DOWNLOAD,
+    payload: true
 })
