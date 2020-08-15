@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteProductAction, updateProductAction } from '../actions/actionsProducts'
 import swal from 'sweetalert2';

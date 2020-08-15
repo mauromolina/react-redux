@@ -9,11 +9,9 @@ import {
     SUCCESSFULL_DELETE_PRODUCT,
     FAILED_DELETE_PRODUCT,
     GET_UPDATE_PRODUCT,
-    START_UPDATE_PRODUCT,
     SUCCESSFULL_UPDATE_PRODUCT,
     FAILED_UPDATE_PRODUCT
 } from '../types';
-import { act } from 'react-dom/test-utils';
 
 const initialState = {
     products: [],
