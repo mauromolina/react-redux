@@ -86,7 +86,7 @@ const NewProduct = ({history}) => {
                             </button>
                         </form>
                         { loading ? <p>Cargando...</p> : null}
-                        { error ? <p className="alert alert-danger p-2 mt-4 text-center">Hubo un error! No se pudo agregar el producto</p> : null}
+                        { error ? <p className="alert alert-danger p-2 mt-4 text-center">Error en la conexión a la base de datos</p> : null}
                     </div>
                 </div>
             </div>
