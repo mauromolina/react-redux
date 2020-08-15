@@ -1,4 +1,16 @@
+# React Redux CRUD
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/05cf2365-fe04-47b3-9917-91ef86a7cc8e/deploy-status)](https://app.netlify.com/sites/mauro-reactredux/deploys)
+
+## Information
+
+The application was created with ReactJS as part of my learning with Redux, REST API, Axios and reinforcing design knowledge.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Preview
+
+The app is now live on Netlify: [React Redux CRUD](https://mauro-reactredux.netlify.app/)
 
 ## Available Scripts
 
